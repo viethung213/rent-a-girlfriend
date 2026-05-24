@@ -108,6 +108,7 @@ func (h *BookingGRPCHandler) RejectBooking(ctx context.Context, req *bookingv1.R
 	booking, err := h.rejectBooking.Handle(ctx, command.RejectBookingCmd{
 		BookingID:   req.BookingId,
 		CompanionID: companionID,
+		Reason:      req.Reason,
 	})
 	if err != nil {
 		return nil, mapDomainError(err)

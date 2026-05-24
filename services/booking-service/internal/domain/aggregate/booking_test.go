@@ -118,7 +118,7 @@ func TestReject_INV_B03_Success(t *testing.T) {
 	booking, _ := aggregate.NewBooking(clientID, companionID, scenario, timeRange, now)
 	_ = booking.Events()
 
-	err := booking.Reject(companionID, now)
+	err := booking.Reject(companionID, "declined", now)
 	if err != nil {
 		t.Fatalf("expected no error, got %v", err)
 	}
